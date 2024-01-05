@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import CounterComponent from './src/components/CounterComponent';
+import { Provider } from 'react-redux';
+import store from './src/store/store';
+import { StyleSheet, View } from 'react-native';
+import NoteForm from './src/components/NoteForm';
+import NoteList from './src/components/NoteList';
+
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store ={store}>
+        <View style={style.container}>
+          <NoteForm/>
+          <NoteList/>
+        </View>
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const style = StyleSheet.create({
+  container:{
+    flex:1,
+    padding:40
+  }
+})
+
+
